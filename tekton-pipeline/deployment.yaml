@@ -20,7 +20,7 @@ spec:
         app: tekton1
     spec:
       containers:
-      - image: docker-registry.default.svc:5000/tekton-lab/tekton1:latest
+      - image: image-registry.openshift-image-registry.svc:5000/tekton-lab/tekton1:latest
         name: tekton1
         resources: {}
 status: {}
