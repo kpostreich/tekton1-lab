@@ -17,12 +17,6 @@ spec:
   steps:
     - name: oc-service
       image: quay.io/openshift/origin-cli:latest
-      env:
-        - name: REG_PWD
-          valueFrom:
-            secretKeyRef:
-              name: tekton-lab-deployer-secret
-              key: token
       command: ["/bin/bash", "-c"]
       args:
         - oc apply -f /workspace/tekton1-git/tekton-pipeline/deployment.yaml --token=$REG_PWD -n tekton-lab
