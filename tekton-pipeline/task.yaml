@@ -26,7 +26,7 @@ spec:
   - name: build
     image: quay.io/buildah/stable:v1.11.0
     workingDir: /workspace/tekton1-git
-    command: ['buildah', 'bud', '--tls-verify=false', '--format=docker', '-f', './Dockerfile', '-t', 'docker-registry.default.svc:5000/tekton-lab/tekton1:latest', '.']
+    command: ['buildah', 'bud', '--tls-verify=false', '--format=docker', '-f', './Dockerfile', '-t', 'image-registry.openshift-image-registry.svc:5000/tekton-lab/tekton1:latest', '.']
     volumeMounts:
     - name: varlibcontainers
       mountPath: /var/lib/containers
@@ -35,7 +35,7 @@ spec:
   - name: push
     image: quay.io/buildah/stable:v1.11.0
     workingDir: /workspace/tekton1-git
-    command: ['buildah', 'push', '--tls-verify=false', 'docker-registry.default.svc:5000/tekton-lab/tekton1:latest', 'docker://docker-registry.default.svc:5000/tekton-lab/tekton1:latest']
+    command: ['buildah', 'push', '--tls-verify=false', 'image-registry.openshift-image-registry.svc:5000/tekton-lab/tekton1:latest', 'image-registry.openshift-image-registry.svc:5000/tekton-lab/tekton1:latest']
     volumeMounts:
     - name: varlibcontainers
       mountPath: /var/lib/containers
