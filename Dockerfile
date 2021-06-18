@@ -1,6 +1,7 @@
 #FROM node:10
 #USER node
-FROM node:latest
+#FROM node:latest
+FROM quay.io/bitnami/node:latest
 
 # Create app directory
 WORKDIR /usr/src/app
